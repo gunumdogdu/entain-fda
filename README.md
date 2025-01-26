@@ -4,13 +4,14 @@ A modern Hacker News client built with Flutter, showcasing clean architecture, b
 
 ## 📱 Demo
 
+![Simulator Screenshot - iPhone 16 Pro - 2025-01-26 at 19 53 31](https://github.com/user-attachments/assets/313a074c-ef2c-48ba-96a9-0d8e37b58bfd)
 
 
 
 
 [Click to watch the YouTube Shorts](https://youtube.com/shorts/d7We_uu7JVU?feature=share)
 
-Or, embed the video below:
+ Embed video below:
 
 <a href="https://youtube.com/shorts/d7We_uu7JVU?feature=share" target="_blank">
   <img src="https://img.youtube.com/vi/d7We_uu7JVU/0.jpg" alt="YouTube Video Thumbnail" />
