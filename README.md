@@ -6,7 +6,7 @@ A modern Hacker News client built with Flutter, showcasing clean architecture, b
 
 
 
-![Description of Image](https://github.com/user-attachments/assets/1bb53ca1-ca71-4355-ae6a-110b4351fac0)
+
 
 [Click to watch the YouTube Shorts](https://youtube.com/shorts/d7We_uu7JVU?feature=share)
 
@@ -19,7 +19,7 @@ Or, embed the video below:
 
 
 
-## 📱 Features
+## 📱 Featuresnoldu
 
 - Browse top Hacker News stories
 - View story details and comments
