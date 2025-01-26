@@ -1,5 +1,6 @@
-import 'package:flutter/cupertino.dart';
+import 'package:common/common.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -34,23 +35,20 @@ class MyApp extends ConsumerWidget {
         (themeMode == ThemeMode.system &&
             MediaQuery.platformBrightnessOf(context) == Brightness.dark);
 
-    return CupertinoApp.router(
+    return MaterialApp.router(
       title: 'Hacker News',
-      theme: isDark
-          ? const CupertinoThemeData(
-              brightness: Brightness.dark,
-              primaryColor: CupertinoColors.activeBlue,
-            )
-          : const CupertinoThemeData(
-              brightness: Brightness.light,
-              primaryColor: CupertinoColors.activeBlue,
-            ),
+      theme: AppMaterialTheme.light,
+      darkTheme: AppMaterialTheme.dark,
+      themeMode: themeMode,
       routerConfig: router,
       debugShowCheckedModeBanner: false,
-      localizationsDelegates: const [],
-      supportedLocales: const [
-        Locale('en', ''), // English
+      localizationsDelegates: const [
+        AppLocalizationDelegate(),
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
       ],
+      supportedLocales: getSupportedLocalList,
     );
   }
 }

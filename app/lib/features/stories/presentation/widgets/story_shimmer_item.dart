@@ -1,75 +1,85 @@
 import 'package:flutter/cupertino.dart';
 import 'package:shimmer/shimmer.dart';
 
+import '../../../../core/constants/module_padding.dart';
+import '../../../../core/constants/module_radius.dart';
+
 class StoryShimmerItem extends StatelessWidget {
   const StoryShimmerItem({super.key});
 
   @override
   Widget build(BuildContext context) {
     final isDark = CupertinoTheme.of(context).brightness == Brightness.dark;
+
+    // Use darker colors for dark mode
     final baseColor =
-        isDark ? CupertinoColors.systemGrey6 : CupertinoColors.systemGrey5;
+        isDark ? const Color(0xFF2C2C2E) : CupertinoColors.systemGrey5;
     final highlightColor =
-        isDark ? CupertinoColors.systemGrey4 : CupertinoColors.systemGrey3;
+        isDark ? const Color(0xFF3A3A3C) : CupertinoColors.systemGrey4;
 
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      margin: const EdgeInsets.symmetric(
+        horizontal: ModulePadding.h16,
+        vertical: ModulePadding.v8,
+      ),
       decoration: BoxDecoration(
-        color: isDark ? CupertinoColors.systemGrey6 : CupertinoColors.white,
-        borderRadius: BorderRadius.circular(12),
+        color: isDark
+            ? CupertinoColors.systemBackground.darkColor
+            : CupertinoColors.white,
+        borderRadius: BorderRadius.circular(ModuleRadius.r12),
       ),
       child: Shimmer.fromColors(
-        baseColor: baseColor.withOpacity(0.3),
-        highlightColor: highlightColor.withOpacity(0.3),
+        baseColor: baseColor,
+        highlightColor: highlightColor,
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(ModulePadding.a16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                 width: double.infinity,
-                height: 16,
+                height: ModuleSize.icon16,
                 decoration: BoxDecoration(
                   color: CupertinoColors.white,
-                  borderRadius: BorderRadius.circular(4),
+                  borderRadius: BorderRadius.circular(ModuleRadius.r4),
                 ),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: ModulePadding.v8),
               Container(
                 width: 200,
-                height: 16,
+                height: ModuleSize.icon16,
                 decoration: BoxDecoration(
                   color: CupertinoColors.white,
-                  borderRadius: BorderRadius.circular(4),
+                  borderRadius: BorderRadius.circular(ModuleRadius.r4),
                 ),
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: ModulePadding.v12),
               Row(
                 children: [
                   Container(
-                    width: 24,
-                    height: 24,
+                    width: ModuleSize.icon24,
+                    height: ModuleSize.icon24,
                     decoration: const BoxDecoration(
                       color: CupertinoColors.white,
                       shape: BoxShape.circle,
                     ),
                   ),
-                  const SizedBox(width: 8),
+                  const SizedBox(width: ModulePadding.h8),
                   Container(
                     width: 100,
-                    height: 12,
+                    height: ModuleSize.icon12,
                     decoration: BoxDecoration(
                       color: CupertinoColors.white,
-                      borderRadius: BorderRadius.circular(4),
+                      borderRadius: BorderRadius.circular(ModuleRadius.r4),
                     ),
                   ),
-                  const SizedBox(width: 16),
+                  const SizedBox(width: ModulePadding.h16),
                   Container(
                     width: 80,
-                    height: 12,
+                    height: ModuleSize.icon12,
                     decoration: BoxDecoration(
                       color: CupertinoColors.white,
-                      borderRadius: BorderRadius.circular(4),
+                      borderRadius: BorderRadius.circular(ModuleRadius.r4),
                     ),
                   ),
                 ],

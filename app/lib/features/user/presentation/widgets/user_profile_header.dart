@@ -1,6 +1,9 @@
 import 'package:api/api.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:hacker_news/core/constants/module_padding.dart';
+import 'package:values/values.dart';
 
+import '../../../../core/constants/module_opacity.dart';
 import '../../../../core/utils/date_formatter.dart';
 
 class UserProfileHeader extends StatelessWidget {
@@ -37,7 +40,8 @@ class UserProfileHeader extends StatelessWidget {
                 width: 64,
                 height: 64,
                 decoration: BoxDecoration(
-                  color: CupertinoColors.activeBlue.withOpacity(0.1),
+                  color:
+                      CupertinoColors.activeBlue.withOpacity(ModuleOpacity.o01),
                   shape: BoxShape.circle,
                 ),
                 child: Center(
@@ -60,7 +64,7 @@ class UserProfileHeader extends StatelessWidget {
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      'Member since ${formatDate(user.created)}',
+                      context.i10n.memberSince(formatDate(user.created)),
                       style: textTheme.textStyle.copyWith(
                         color: CupertinoColors.systemGrey,
                       ),
@@ -75,14 +79,14 @@ class UserProfileHeader extends StatelessWidget {
             children: [
               _buildStat(
                 context,
-                'Karma',
+                context.i10n.karma,
                 user.karma.toString(),
                 CupertinoIcons.arrow_up_circle_fill,
               ),
               const SizedBox(width: 24),
               _buildStat(
                 context,
-                'Stories',
+                context.i10n.stories,
                 user.submitted.length.toString(),
                 CupertinoIcons.doc_text_fill,
               ),
@@ -105,21 +109,25 @@ class UserProfileHeader extends StatelessWidget {
       children: [
         Icon(
           icon,
-          size: 18,
+          size: ModuleSize.icon18,
           color: CupertinoColors.activeBlue,
         ),
-        const SizedBox(width: 8),
+        const SizedBox(width: ModulePadding.v8),
         Text(
+          textAlign: TextAlign.left,
           value,
           style: textTheme.textStyle.copyWith(
             fontWeight: FontWeight.bold,
+            fontSize: 16,
           ),
         ),
         const SizedBox(width: 4),
         Text(
           label,
+          textAlign: TextAlign.left,
           style: textTheme.tabLabelTextStyle.copyWith(
             color: CupertinoColors.systemGrey,
+            fontSize: 16,
           ),
         ),
       ],

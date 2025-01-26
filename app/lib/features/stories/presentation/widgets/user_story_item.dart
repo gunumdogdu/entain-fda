@@ -86,13 +86,13 @@ class StoryItem extends StatelessWidget {
                             Icon(
                               Icons.person_outline,
                               size: 16,
-                              color: context.onSurfaceColor.withOpacity(0.6),
+                              color: context.onSurfaceColor.withValues(alpha: 0.6),
                             ),
                             const SizedBox(width: ModulePadding.h4),
                             Text(
                               story.by,
                               style: context.bodyMedium?.copyWith(
-                                color: context.onSurfaceColor.withOpacity(0.6),
+                                color: context.onSurfaceColor.withValues(alpha: 0.6),
                               ),
                             ),
                           ],
@@ -107,7 +107,7 @@ class StoryItem extends StatelessWidget {
                         vertical: ModulePadding.v4,
                       ),
                       decoration: BoxDecoration(
-                        color: context.primaryColor.withOpacity(0.1),
+                        color: context.primaryColor.withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(ModuleRadius.r20),
                       ),
                       child: Row(

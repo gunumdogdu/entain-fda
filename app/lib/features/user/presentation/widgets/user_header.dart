@@ -1,6 +1,8 @@
 import 'package:api/api.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:hacker_news/core/constants/module_padding.dart';
 import 'package:hacker_news/features/user/presentation/widgets/divider.dart';
+import 'package:values/values.dart';
 
 import '../../../../core/utils/date_formatter.dart';
 
@@ -89,14 +91,14 @@ class UserHeader extends StatelessWidget {
                 _buildStatItem(
                   context,
                   CupertinoIcons.arrow_up_circle,
-                  'Karma',
+                  context.i10n.karma,
                   user.karma.toString(),
                 ),
-                const SizedBox(width: 24),
+                const SizedBox(width: ModulePadding.h24),
                 _buildStatItem(
                   context,
                   CupertinoIcons.doc_text,
-                  'Stories',
+                  context.i10n.stories,
                   user.submitted.length.toString(),
                 ),
               ],
@@ -113,7 +115,7 @@ class UserHeader extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'About',
+                    context.i10n.about,
                     style: textTheme.navTitleTextStyle.copyWith(
                       fontSize: 16,
                     ),
@@ -134,9 +136,9 @@ class UserHeader extends StatelessWidget {
 
           // Submitted Stories Header
           Padding(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(ModulePadding.v16),
             child: Text(
-              'Submitted Stories',
+              context.i10n.submittedStories,
               style: textTheme.navTitleTextStyle.copyWith(
                 fontSize: 16,
               ),
@@ -159,17 +161,17 @@ class UserHeader extends StatelessWidget {
       children: [
         Icon(
           icon,
-          size: 16,
+          size: ModuleSize.icon16,
           color: CupertinoColors.activeOrange,
         ),
-        const SizedBox(width: 4),
+        const SizedBox(width: ModulePadding.h4),
         Text(
           value,
           style: textTheme.textStyle.copyWith(
             fontWeight: FontWeight.bold,
           ),
         ),
-        const SizedBox(width: 4),
+        const SizedBox(width: ModulePadding.h4),
         Text(
           label,
           style: textTheme.tabLabelTextStyle.copyWith(

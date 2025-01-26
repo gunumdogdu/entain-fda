@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hacker_news/core/constants/module_padding.dart';
 import 'package:hacker_news/features/stories/presentation/widgets/story_shimmer_item.dart';
+import 'package:values/values.dart';
 
 import '../../../../providers/theme_provider.dart';
 import '../controllers/home_controller.dart';
@@ -16,33 +18,33 @@ class HomeScreen extends ConsumerWidget {
     showCupertinoModalPopup(
       context: context,
       builder: (context) => CupertinoActionSheet(
-        title: const Text('Choose Theme'),
+        title: Text(context.i10n.chooseTheme),
         actions: [
           CupertinoActionSheetAction(
             onPressed: () async {
               await notifier.setTheme(ThemeMode.light);
               if (context.mounted) Navigator.pop(context);
             },
-            child: const Text('Light Mode'),
+            child: Text(context.i10n.lightMode),
           ),
           CupertinoActionSheetAction(
             onPressed: () async {
               await notifier.setTheme(ThemeMode.dark);
               if (context.mounted) Navigator.pop(context);
             },
-            child: const Text('Dark Mode'),
+            child: Text(context.i10n.darkMode),
           ),
           CupertinoActionSheetAction(
             onPressed: () async {
               await notifier.setTheme(ThemeMode.system);
               if (context.mounted) Navigator.pop(context);
             },
-            child: const Text('System Default'),
+            child: Text(context.i10n.systemDefault),
           ),
         ],
         cancelButton: CupertinoActionSheetAction(
           onPressed: () => Navigator.pop(context),
-          child: const Text('Cancel'),
+          child: Text(context.i10n.cancelBtnText),
         ),
       ),
     );
@@ -60,7 +62,7 @@ class HomeScreen extends ConsumerWidget {
         backgroundColor: isDark
             ? CupertinoColors.systemBackground.darkColor
             : CupertinoColors.systemBackground,
-        middle: const Text('Hacker News'),
+        middle: Text(context.i10n.hackerNewsTitle),
         trailing: CupertinoButton(
           padding: EdgeInsets.zero,
           onPressed: () => _showThemeModal(context, ref),
@@ -87,20 +89,20 @@ class HomeScreen extends ConsumerWidget {
                   children: [
                     const Icon(
                       CupertinoIcons.exclamationmark_circle,
-                      size: 48,
+                      size: ModuleSize.icon48,
                       color: CupertinoColors.systemRed,
                     ),
-                    const SizedBox(height: 16),
+                    const SizedBox(height: ModulePadding.v16),
                     Text(
-                      'Error loading stories',
+                      context.i10n.errorLoadingStories,
                       style: CupertinoTheme.of(context)
                           .textTheme
                           .navTitleTextStyle,
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: ModulePadding.v8),
                     CupertinoButton(
                       onPressed: () => ref.refresh(homeControllerProvider),
-                      child: const Text('Try Again'),
+                      child: Text(context.i10n.tryAgainBtnText),
                     ),
                   ],
                 ),

@@ -1,14 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
-import 'package:hacker_news/core/utils/date_formatter.dart';
+import 'package:hacker_news/core/constants/module_padding.dart';
 import 'package:hacker_news/features/user/presentation/widgets/user_stories_list.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+import 'package:values/values.dart';
 
 import '../controllers/user_controller.dart';
-import '../widgets/user_header.dart';
 import '../widgets/user_profile_header.dart';
-
 
 class UserProfileScreen extends ConsumerWidget {
   final String userId;
@@ -29,7 +27,7 @@ class UserProfileScreen extends ConsumerWidget {
             ? CupertinoColors.systemBackground.darkColor
             : CupertinoColors.systemBackground,
         middle: Text(userId),
-        previousPageTitle: 'Stories',
+        previousPageTitle: context.i10n.stories,
       ),
       child: SafeArea(
         child: userAsync.when(
@@ -45,10 +43,10 @@ class UserProfileScreen extends ConsumerWidget {
               ),
               if (user.about != null) ...[
                 SliverPadding(
-                  padding: const EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(ModulePadding.v16),
                   sliver: SliverToBoxAdapter(
                     child: Container(
-                      padding: const EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(ModulePadding.v16),
                       decoration: BoxDecoration(
                         color: isDark
                             ? CupertinoColors.systemBackground.darkColor
@@ -65,15 +63,16 @@ class UserProfileScreen extends ConsumerWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'About',
+                            context.i10n.about,
                             style: CupertinoTheme.of(context)
                                 .textTheme
                                 .navTitleTextStyle
                                 .copyWith(
                                   color: CupertinoColors.activeBlue,
+                                  fontSize: 20,
                                 ),
                           ),
-                          const SizedBox(height: 8),
+                          const SizedBox(height: ModulePadding.v8),
                           Text(
                             user.about!,
                             style: CupertinoTheme.of(context)
@@ -94,15 +93,18 @@ class UserProfileScreen extends ConsumerWidget {
               ],
               if (user.submitted.isNotEmpty) ...[
                 SliverPadding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: ModulePadding.h16,
+                  ),
                   sliver: SliverToBoxAdapter(
                     child: Text(
-                      'Stories',
+                      context.i10n.stories,
                       style: CupertinoTheme.of(context)
                           .textTheme
                           .navTitleTextStyle
                           .copyWith(
                             color: CupertinoColors.activeBlue,
+                            fontSize: 20,
                           ),
                     ),
                   ),
@@ -134,18 +136,18 @@ class UserProfileScreen extends ConsumerWidget {
               children: [
                 const Icon(
                   CupertinoIcons.exclamationmark_circle,
-                  size: 48,
+                  size: ModuleSize.icon48,
                   color: CupertinoColors.systemRed,
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: ModulePadding.v16),
                 Text(
-                  'Error loading user',
+                  context.i10n.errorLoadingUser,
                   style: CupertinoTheme.of(context).textTheme.navTitleTextStyle,
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: ModulePadding.v8),
                 CupertinoButton(
                   onPressed: () => ref.refresh(userControllerProvider(userId)),
-                  child: const Text('Try Again'),
+                  child: Text(context.i10n.tryAgain),
                 ),
               ],
             ),

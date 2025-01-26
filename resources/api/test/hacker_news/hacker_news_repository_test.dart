@@ -17,7 +17,7 @@ void main() {
   group('HackerNewsRepository', () {
     test('getTopStories returns limited number of stories', () async {
       final storyIds = List.generate(100, (i) => i);
-      final mockStory = StoryModel(
+      const mockStory = StoryModel(
         id: 1,
         title: 'Test Story',
         by: 'testuser',
@@ -34,7 +34,7 @@ void main() {
     });
 
     test('getUser returns user data', () async {
-      final mockUser = UserModel(
+      const mockUser = UserModel(
         id: 'testuser',
         created: 1234567890,
         about: 'Test bio',

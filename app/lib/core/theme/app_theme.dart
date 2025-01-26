@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../constants/module_opacity.dart';
+
 class AppTheme {
   // Colors
   static const _primaryLight = Color(0xFF2962FF);
@@ -62,8 +64,7 @@ class AppTheme {
     colorScheme: ColorScheme.light(
       primary: _primaryLight,
       onPrimary: Colors.white,
-      secondary: _primaryLight.withOpacity(0.8),
-      background: _backgroundLight,
+      secondary: _primaryLight.withOpacity(ModuleOpacity.o08),
       surface: _surfaceLight,
       onSurface: _textPrimaryLight,
     ),
@@ -95,8 +96,7 @@ class AppTheme {
     colorScheme: ColorScheme.dark(
       primary: _primaryDark,
       onPrimary: Colors.black,
-      secondary: _primaryDark.withOpacity(0.8),
-      background: _backgroundDark,
+      secondary: _primaryDark.withOpacity(ModuleOpacity.o08),
       surface: _surfaceDark,
       onSurface: _textPrimaryDark,
     ),

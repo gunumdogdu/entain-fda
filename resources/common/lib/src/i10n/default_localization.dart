@@ -1,4 +1,4 @@
-import 'package:common/src/i10n/lan/tr.dart';
+import 'package:common/src/i10n/lan/en.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart' show Locale;
 
@@ -10,7 +10,7 @@ const Locale kDefaultLocal = Locale('tr');
 /// 2. Remove this comment
 /// Ugulamanın desteklediği diler
 Map<String, AppLocalizationLabel> supportedLocalization = {
-  'tr': TrLocalization(),
+  'en': EnLocalization(),
   //'en': EnLocalization(), // Temporarily disabled for Turkish-only display
 };
 
@@ -173,4 +173,23 @@ abstract class AppLocalizationLabel {
   String get companyName;
 
   String showingEntries(int totalCount, int limit);
+
+  // Hacker News
+  String get hackerNewsTitle;
+  String get errorLoadingStories;
+  String get errorLoadingUser;
+  String get chooseTheme;
+  String get lightMode;
+  String get darkMode;
+  String get systemDefault;
+  String get about;
+  String get karma;
+  String get stories;
+  String get viewOnHackerNews;
+  String memberSince(String date);
+  String storiesBy(String author);
+  String storyNumber(int id);
+  String get submittedStories;
+  String get tryAgain;
+  String get profile;
 }

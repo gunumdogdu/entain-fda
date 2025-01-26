@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:hacker_news/features/home/presentation/controllers/home_controller.dart';
 import 'package:hacker_news/features/stories/presentation/widgets/story_card.dart';
 
 import '../../../../core/models/story.dart';
@@ -16,7 +17,7 @@ class StoryList extends StatelessWidget {
       slivers: [
         CupertinoSliverRefreshControl(
           onRefresh: () async {
-            // Handle refresh
+            
           },
         ),
         SliverPadding(

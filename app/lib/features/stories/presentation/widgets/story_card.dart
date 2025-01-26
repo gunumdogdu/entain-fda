@@ -2,8 +2,10 @@ import 'dart:developer' as developer;
 
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hacker_news/core/constants/module_padding.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
+import '../../../../core/constants/module_opacity.dart';
 import '../../../../core/models/story.dart';
 import '../../../../core/utils/date_formatter.dart';
 import '../../../../router/app_router.dart';
@@ -44,7 +46,7 @@ class StoryCard extends StatelessWidget {
         padding: EdgeInsets.zero,
         onPressed: story.url != null ? () => _launchUrl(story.url!) : null,
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(ModulePadding.a16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -66,9 +68,9 @@ class StoryCard extends StatelessWidget {
                   ),
                   if (story.url != null) ...[
                     const SizedBox(width: 8),
-                    Icon(
+                    const Icon(
                       CupertinoIcons.arrow_up_right,
-                      size: 16,
+                      size: ModuleSize.icon16,
                       color: CupertinoColors.activeBlue,
                     ),
                   ],
@@ -88,12 +90,13 @@ class StoryCard extends StatelessWidget {
                           width: 24,
                           height: 24,
                           decoration: BoxDecoration(
-                            color: CupertinoColors.activeBlue.withOpacity(0.1),
+                            color: CupertinoColors.activeBlue
+                                .withOpacity(ModuleOpacity.o01),
                             shape: BoxShape.circle,
                           ),
                           child: Center(
                             child: Text(
-                              story.by?[0].toUpperCase() ?? '',
+                              story.by[0].toUpperCase() ?? '',
                               style: textTheme.textStyle.copyWith(
                                 fontSize: 12,
                                 color: CupertinoColors.activeBlue,
@@ -113,9 +116,9 @@ class StoryCard extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 16),
-                  Icon(
+                  const Icon(
                     CupertinoIcons.time,
-                    size: 16,
+                    size: ModuleSize.icon16,
                     color: CupertinoColors.systemGrey,
                   ),
                   const SizedBox(width: 4),
@@ -126,23 +129,24 @@ class StoryCard extends StatelessWidget {
                       color: CupertinoColors.systemGrey,
                     ),
                   ),
-                  if (story.score != null) ...[
-                    const SizedBox(width: 16),
+                  ...[
+                    const SizedBox(width: ModulePadding.h16),
                     Container(
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                        vertical: 4,
+                        horizontal: ModulePadding.h8,
+                        vertical: ModulePadding.v4,
                       ),
                       decoration: BoxDecoration(
-                        color: CupertinoColors.activeBlue.withOpacity(0.1),
+                        color: CupertinoColors.activeBlue
+                            .withOpacity(ModuleOpacity.o01),
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Icon(
+                          const Icon(
                             CupertinoIcons.arrow_up_circle_fill,
-                            size: 16,
+                            size: ModuleSize.icon16,
                             color: CupertinoColors.activeBlue,
                           ),
                           const SizedBox(width: 4),

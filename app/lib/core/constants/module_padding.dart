@@ -34,3 +34,15 @@ class ModulePadding {
   static const double a24 = 24;
   static const double a32 = 32;
 }
+class ModuleSize {
+  const ModuleSize._();
+
+  static const double icon12 = 12;
+  static const double icon14 = 14;
+  static const double icon16 = 16;
+  static const double icon18 = 18;
+  static const double icon20 = 20;
+  static const double icon24 = 24;
+  static const double icon48 = 48;
+  static const double icon64 = 64;
+} 

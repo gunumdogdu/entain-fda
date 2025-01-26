@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:hacker_news/core/constants/module_padding.dart';
 
 import '../../../../core/widgets/shimmer_loading.dart';
 
@@ -31,7 +32,7 @@ class StoryShimmerItem extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: ModulePadding.v8),
             ShimmerLoading(
               child: Container(
                 height: 16,
@@ -59,9 +60,9 @@ class StoryShimmerItem extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(width: 8),
+                const SizedBox(width: ModulePadding.h8),
                 const Text('•'),
-                const SizedBox(width: 8),
+                const SizedBox(width: ModulePadding.h8),
                 ShimmerLoading(
                   child: Container(
                     height: 14,

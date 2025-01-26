@@ -192,7 +192,7 @@ class AppBaseButton extends StatelessWidget {
               ElevatedButtonTheme.of(context).style!.copyWith(
                     backgroundColor: bgColor?.call(context) == null
                         ? null
-                        : MaterialStateProperty.all<Color>(
+                        : WidgetStateProperty.all<Color>(
                             bgColor!.call(context)!,
                           ),
                   ),

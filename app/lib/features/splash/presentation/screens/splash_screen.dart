@@ -85,7 +85,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
                   ),
                 ),
               ),
-              SizedBox(height: ModulePadding.v32),
+              const SizedBox(height: ModulePadding.v32),
               // Loading Indicator
               FadeTransition(
                 opacity: _fadeAnimation,

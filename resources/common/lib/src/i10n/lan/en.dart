@@ -157,4 +157,56 @@ class EnLocalization extends AppLocalizationLabel {
   @override
   String showingEntries(int totalCount, int limit) =>
       'Showing $totalCount of $limit entries';
+
+  // Hacker News
+  @override
+  String get hackerNewsTitle => 'Hacker News';
+
+  @override
+  String get errorLoadingStories => 'Error loading stories';
+
+  @override
+  String get errorLoadingUser => 'Error loading user';
+
+  @override
+  String get chooseTheme => 'Choose Theme';
+
+  @override
+  String get lightMode => 'Light Mode';
+
+  @override
+  String get darkMode => 'Dark Mode';
+
+  @override
+  String get systemDefault => 'System Default';
+
+  @override
+  String get about => 'About';
+
+  @override
+  String get karma => 'Karma';
+
+  @override
+  String get stories => 'Stories';
+
+  @override
+  String get viewOnHackerNews => 'View on Hacker News';
+
+  @override
+  String memberSince(String date) => 'Member since $date';
+
+  @override
+  String storiesBy(String author) => 'Stories by $author';
+
+  @override
+  String storyNumber(int id) => 'Story #$id';
+
+  @override
+  String get submittedStories => 'Submitted Stories';
+
+  @override
+  String get tryAgain => 'Try Again';
+
+  @override
+  String get profile => 'Profile';
 }

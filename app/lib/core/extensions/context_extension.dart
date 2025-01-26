@@ -8,11 +8,11 @@ extension ContextExtension on BuildContext {
 
   // Colors
   Color get primaryColor => colorScheme.primary;
-  Color get backgroundColor => colorScheme.background;
+  Color get backgroundColor => colorScheme.surface;
   Color get surfaceColor => colorScheme.surface;
   Color get errorColor => colorScheme.error;
   Color get onPrimaryColor => colorScheme.onPrimary;
-  Color get onBackgroundColor => colorScheme.onBackground;
+  Color get onBackgroundColor => colorScheme.onSurface;
   Color get onSurfaceColor => colorScheme.onSurface;
   Color get onErrorColor => colorScheme.onError;
 

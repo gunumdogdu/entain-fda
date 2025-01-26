@@ -5,8 +5,6 @@ abstract class AppTheme {
   /// Returns the font family for the app theme.
   String get fontFamily;
 
-
-
   /// Returns the default icon theme for the app theme.
   IconThemeData get iconTheme;
 
@@ -84,3 +82,23 @@ ThemeData getTheme<T extends AppTheme>(T theme) => ThemeData(
       dialogTheme: theme.dialogTheme,
       colorScheme: theme.colorScheme,
     );
+
+class AppMaterialTheme {
+  static final ThemeData light = ThemeData(
+    useMaterial3: true,
+    brightness: Brightness.light,
+    colorScheme: const ColorScheme.light(
+      primary: Colors.blue,
+      secondary: Colors.blueAccent,
+    ),
+  );
+
+  static final ThemeData dark = ThemeData(
+    useMaterial3: true,
+    brightness: Brightness.dark,
+    colorScheme: const ColorScheme.dark(
+      primary: Colors.blue,
+      secondary: Colors.blueAccent,
+    ),
+  );
+}

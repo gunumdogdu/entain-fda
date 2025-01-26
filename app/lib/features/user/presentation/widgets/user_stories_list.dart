@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hacker_news/core/constants/module_padding.dart';
 import 'package:url_launcher/url_launcher_string.dart';
+import 'package:values/values.dart';
 
 import '../../../../core/utils/date_formatter.dart';
 import '../../providers/user_providers.dart';
@@ -66,9 +68,9 @@ class UserStoriesList extends ConsumerWidget {
                         ),
                         if (story.url != null) ...[
                           const SizedBox(width: 8),
-                          Icon(
+                          const Icon(
                             CupertinoIcons.link,
-                            size: 14,
+                            size: ModuleSize.icon14,
                             color: CupertinoColors.systemGrey,
                           ),
                         ],
@@ -80,7 +82,7 @@ class UserStoriesList extends ConsumerWidget {
               );
             },
             loading: () => const Padding(
-              padding: EdgeInsets.all(12),
+              padding: EdgeInsets.all(ModulePadding.v12),
               child: Center(
                 child: CupertinoActivityIndicator(),
               ),
@@ -137,7 +139,7 @@ class UserStoriesItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Story #$storyId',
+                    context.i10n.storyNumber(storyId),
                     style: textTheme.textStyle.copyWith(
                       fontSize: 17,
                       color: isDark
@@ -147,7 +149,7 @@ class UserStoriesItem extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    'View on Hacker News',
+                    context.i10n.viewOnHackerNews,
                     style: textTheme.tabLabelTextStyle.copyWith(
                       color: CupertinoColors.activeBlue,
                     ),
@@ -155,7 +157,7 @@ class UserStoriesItem extends StatelessWidget {
                 ],
               ),
             ),
-            Icon(
+            const Icon(
               CupertinoIcons.arrow_up_right,
               size: 20,
               color: CupertinoColors.activeBlue,

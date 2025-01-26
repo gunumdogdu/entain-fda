@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hacker_news/core/constants/module_padding.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../../../core/models/story.dart';
@@ -29,7 +30,10 @@ class StoryItem extends StatelessWidget {
     final isDark = CupertinoTheme.of(context).brightness == Brightness.dark;
 
     return CupertinoListSection.insetGrouped(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+      margin: const EdgeInsets.symmetric(
+        horizontal: ModulePadding.h16,
+        vertical: ModulePadding.v4,
+      ),
       backgroundColor: Colors.transparent,
       children: [
         CupertinoListTile(
@@ -48,7 +52,7 @@ class StoryItem extends StatelessWidget {
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: ModulePadding.v8),
               Row(
                 children: [
                   GestureDetector(
@@ -61,7 +65,7 @@ class StoryItem extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(width: 8),
+                  const SizedBox(width: ModulePadding.h8),
                   Text(
                     '•',
                     style: TextStyle(
@@ -69,7 +73,7 @@ class StoryItem extends StatelessWidget {
                       color: CupertinoColors.systemGrey.resolveFrom(context),
                     ),
                   ),
-                  const SizedBox(width: 8),
+                  const SizedBox(width: ModulePadding.h8),
                   Text(
                     formatDate(story.time),
                     style: TextStyle(
@@ -80,10 +84,10 @@ class StoryItem extends StatelessWidget {
                   const Spacer(),
                   Icon(
                     CupertinoIcons.arrow_up,
-                    size: 14,
+                    size: ModuleSize.icon14,
                     color: CupertinoColors.activeBlue.resolveFrom(context),
                   ),
-                  const SizedBox(width: 4),
+                  const SizedBox(width: ModulePadding.h4),
                   Text(
                     '${story.score}',
                     style: TextStyle(

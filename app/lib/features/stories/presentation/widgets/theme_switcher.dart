@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:values/values.dart';
 
 import '../../../../providers/theme_provider.dart';
 
@@ -13,33 +14,33 @@ class ThemeSwitcher extends ConsumerWidget {
     showCupertinoModalPopup(
       context: context,
       builder: (context) => CupertinoActionSheet(
-        title: const Text('Choose Theme'),
+        title: Text(context.i10n.chooseTheme),
         actions: [
           CupertinoActionSheetAction(
             onPressed: () async {
               await notifier.setTheme(ThemeMode.light);
               if (context.mounted) Navigator.pop(context);
             },
-            child: const Text('Light Mode'),
+            child: Text(context.i10n.lightMode),
           ),
           CupertinoActionSheetAction(
             onPressed: () async {
               await notifier.setTheme(ThemeMode.dark);
               if (context.mounted) Navigator.pop(context);
             },
-            child: const Text('Dark Mode'),
+            child: Text(context.i10n.darkMode),
           ),
           CupertinoActionSheetAction(
             onPressed: () async {
               await notifier.setTheme(ThemeMode.system);
               if (context.mounted) Navigator.pop(context);
             },
-            child: const Text('System Default'),
+            child: Text(context.i10n.systemDefault),
           ),
         ],
         cancelButton: CupertinoActionSheetAction(
           onPressed: () => Navigator.pop(context),
-          child: const Text('Cancel'),
+          child: Text(context.i10n.cancelBtnText),
         ),
       ),
     );

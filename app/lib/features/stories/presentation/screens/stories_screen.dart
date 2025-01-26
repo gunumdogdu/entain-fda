@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:hacker_news/core/constants/module_padding.dart';
+import 'package:values/values.dart';
 
 import '../controllers/stories_controller.dart';
 import '../widgets/story_card.dart';
@@ -24,8 +26,8 @@ class StoriesScreen extends ConsumerWidget {
         backgroundColor: isDark
             ? CupertinoColors.systemBackground.darkColor
             : CupertinoColors.systemBackground,
-        middle: Text('Stories by $userId'),
-        previousPageTitle: 'Profile',
+        middle: Text(context.i10n.storiesBy(userId)),
+        previousPageTitle: context.i10n.profile,
       ),
       child: SafeArea(
         child: storiesAsync.when(
@@ -37,7 +39,7 @@ class StoriesScreen extends ConsumerWidget {
                     ref.refresh(storiesControllerProvider(userId).future),
               ),
               SliverPadding(
-                padding: const EdgeInsets.symmetric(vertical: 8),
+                padding: const EdgeInsets.symmetric(vertical: ModulePadding.v8),
                 sliver: SliverList(
                   delegate: SliverChildBuilderDelegate(
                     (context, index) => AnimationLimiter(
@@ -71,16 +73,16 @@ class StoriesScreen extends ConsumerWidget {
                   size: 48,
                   color: CupertinoColors.systemRed,
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: ModulePadding.v16),
                 Text(
-                  'Error loading stories',
+                  context.i10n.errorLoadingStories,
                   style: CupertinoTheme.of(context).textTheme.navTitleTextStyle,
                 ),
-                const SizedBox(height: 8),
+                const SizedBox(height: ModulePadding.v8),
                 CupertinoButton(
                   onPressed: () =>
                       ref.refresh(storiesControllerProvider(userId)),
-                  child: const Text('Try Again'),
+                  child: Text(context.i10n.tryAgain),
                 ),
               ],
             ),
