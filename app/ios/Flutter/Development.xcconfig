@@ -1,0 +1,3 @@
+#include "Generated.xcconfig"
+FLAVOR=development
+PRODUCT_BUNDLE_IDENTIFIER=com.example.hackerNews.development 

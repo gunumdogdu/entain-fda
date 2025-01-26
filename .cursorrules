@@ -1,0 +1,33 @@
+FVM is a must, before running the project, make sure to run `fvm flutter pub get`
+
+Entain Flutter Developer Assignment
+Assignment:
+Make a “Hacker News” (https://news.ycombinator.com/news) app using the HN API
+(https://github.com/HackerNews/API)
+The app should show the top stories from the “/v0/topstories.json” endpoint
+Each item must contain:
+1. Title of the post
+2. Author of the post
+3. Parsed timestamp of creation
+When pressed on the item it should launch the associated url in the browser
+When pressed on the author push a new screen showing the following information about the
+author:
+1. The users’ name
+2. Parsed timestamp of creation
+3. The about section
+4. A list of all the posts this user has submitted (only show the title and creation date; when
+pressed on the item it should also be opened in the browser)
+There is no given design for the assignment, you can draw inspiration from
+https://news.ycombinator.com/news or think of your own design as long as the UX is easy to
+use and understandable. Adding animations and optimisations for better performance will be a
+big plus.
+Tech stack:
+1. Riverpod (state + DI)
+2. Dio + Retrofit (network requests)
+3. go_router (routing)
+4. freezed + json_annotation (Optional for data models)
+
+THIS IS AN ASSIGNMENT FOR A JOB INTERVIEW.
+I Need to have clean app structure, good code quality, and good architecture.
+Dio is a must. And Riverpod is a must.
+

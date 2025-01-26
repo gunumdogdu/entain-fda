@@ -1,0 +1,45 @@
+name: hacker_news_app
+
+packages:
+  - "app/**"
+  - "resources/**"
+  - "resources/values/**"
+  - "resources/widgets/**"
+  - "resources/common/**"
+
+command:
+  bootstrap:
+    usePubspecOverrides: true
+    runPubGetInParallel: false
+
+scripts:
+  analyze:
+    run: melos exec -- fvm flutter analyze .
+    description: Run flutter analyze for all packages
+
+  format:
+    run: melos exec -- fvm flutter format .
+    description: Run flutter format for all packages
+    
+  get:
+    run: melos exec -- fvm flutter pub get
+    description: Run flutter pub get for all packages
+
+  clean:
+    run: melos exec -- fvm flutter clean
+    description: Clean all build files
+    
+  cab:
+    run: |
+      melos bootstrap && \
+      melos clean && \
+      melos get && \
+      melos analyze && \
+      melos format
+    description: Clean, analyze, and build all packages
+
+sdkPath: auto
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.10.0" 
