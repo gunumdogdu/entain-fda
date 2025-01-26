@@ -62,7 +62,13 @@ class HomeScreen extends ConsumerWidget {
         backgroundColor: isDark
             ? CupertinoColors.systemBackground.darkColor
             : CupertinoColors.systemBackground,
-        middle: Text(context.i10n.hackerNewsTitle),
+        middle: Text(
+          context.i10n.hackerNewsTitle,
+          style: CupertinoTheme.of(context)
+              .textTheme
+              .navTitleTextStyle
+              .copyWith(color: context.onSurface),
+        ),
         trailing: CupertinoButton(
           padding: EdgeInsets.zero,
           onPressed: () => _showThemeModal(context, ref),

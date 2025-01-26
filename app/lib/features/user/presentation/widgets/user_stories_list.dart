@@ -150,9 +150,8 @@ class UserStoriesItem extends StatelessWidget {
                   const SizedBox(height: 4),
                   Text(
                     context.i10n.viewOnHackerNews,
-                    style: textTheme.tabLabelTextStyle.copyWith(
-                      color: CupertinoColors.activeBlue,
-                    ),
+                    style: context.titleSmall
+                        .copyWith(color: CupertinoColors.activeBlue),
                   ),
                 ],
               ),

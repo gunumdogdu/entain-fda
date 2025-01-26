@@ -60,7 +60,9 @@ class UserProfileHeader extends StatelessWidget {
                   children: [
                     Text(
                       user.id,
-                      style: textTheme.navTitleTextStyle,
+                      style: context.titleLarge.copyWith(
+                        color: context.onSurface,
+                      ),
                     ),
                     const SizedBox(height: 4),
                     Text(
@@ -116,9 +118,10 @@ class UserProfileHeader extends StatelessWidget {
         Text(
           textAlign: TextAlign.left,
           value,
-          style: textTheme.textStyle.copyWith(
+          style: context.titleSmall.copyWith(
             fontWeight: FontWeight.bold,
             fontSize: 16,
+            color: context.onSurface,
           ),
         ),
         const SizedBox(width: 4),

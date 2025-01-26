@@ -103,7 +103,7 @@ class UserProfileScreen extends ConsumerWidget {
                           .textTheme
                           .navTitleTextStyle
                           .copyWith(
-                            color: CupertinoColors.activeBlue,
+                            color: context.onSurface,
                             fontSize: 20,
                           ),
                     ),
