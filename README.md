@@ -4,7 +4,8 @@ A modern Hacker News client built with Flutter, showcasing clean architecture, b
 
 ## 📱 Demo
 
-![readme](https://github.com/user-attachments/assets/1bb53ca1-ca71-4355-ae6a-110b4351fac0)
+<img src="https://github.com/user-attachments/assets/1bb53ca1-ca71-4355-ae6a-110b4351fac0" width="450"/>
+
 
 
 ## 📱 Features
