@@ -1,45 +1,48 @@
-name: hacker_news_app
+name: hacker_news
 
 packages:
-  - "app/**"
-  - "resources/**"
-  - "resources/values/**"
-  - "resources/widgets/**"
-  - "resources/common/**"
+  - app
+  - resources/**
 
 command:
   bootstrap:
-    usePubspecOverrides: true
     runPubGetInParallel: false
+    usePubspecOverrides: true
 
 scripts:
   analyze:
-    run: melos exec -- fvm flutter analyze .
-    description: Run flutter analyze for all packages
+    run: melos exec -c 1 -- fvm flutter analyze .
+    description: Run `flutter analyze` in all packages
 
   format:
-    run: melos exec -- fvm flutter format .
-    description: Run flutter format for all packages
-    
-  get:
-    run: melos exec -- fvm flutter pub get
-    description: Run flutter pub get for all packages
+    run: melos exec -c 1 -- fvm flutter format .
+    description: Run `flutter format` in all packages
 
-  clean:
-    run: melos exec -- fvm flutter clean
-    description: Clean all build files
+  clean:all:
+    run: melos exec -c 1 -- fvm flutter clean
+    description: Clean all packages
+
+  get:all:
+    run: melos exec -c 1 -- fvm flutter pub get
+    description: Run pub get in all packages
+
+  build:all:
+    run: melos run build:clean && melos run build:gen
+    description: Build all generated files for all packages
+
+  build:clean:
+    run: melos exec -c 1 -- fvm flutter pub run build_runner clean
+    description: Clean all generated files
     
+  build:gen:
+    run: melos exec -c 1 -- fvm flutter pub run build_runner build --delete-conflicting-outputs
+    description: Generate all files for all packages
+
   cab:
     run: |
-      melos bootstrap && \
-      melos clean && \
-      melos get && \
-      melos analyze && \
-      melos format
-    description: Clean, analyze, and build all packages
+      melos clean:all && \
+      melos get:all && \
+      melos build:all
+    description: Clean All Builds (cab) - clean, get dependencies, and generate code
 
-sdkPath: auto
-
-environment:
-  sdk: ">=3.0.0 <4.0.0"
-  flutter: ">=3.10.0" 
+sdkPath: /Users/emirgunumdogdu/Documents/dev/entain_fda/.fvm/versions/3.27.3

@@ -1,8 +1,22 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
+import 'package:path_provider/path_provider.dart';
 
-void main() {
+import 'providers/theme_provider.dart';
+import 'router/app_router.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize path_provider
+  try {
+    await getApplicationSupportDirectory();
+  } catch (e) {
+    // Ignore path_provider errors in development
+    debugPrint('Path provider error: $e');
+  }
+
   runApp(
     const ProviderScope(
       child: MyApp(),
@@ -10,43 +24,33 @@ void main() {
   );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp.router(
+  Widget build(BuildContext context, WidgetRef ref) {
+    final themeMode = ref.watch(themeProvider);
+    final isDark = themeMode == ThemeMode.dark ||
+        (themeMode == ThemeMode.system &&
+            MediaQuery.platformBrightnessOf(context) == Brightness.dark);
+
+    return CupertinoApp.router(
       title: 'Hacker News',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
-        useMaterial3: true,
-      ),
-      routerConfig: _router,
-    );
-  }
-}
-
-final _router = GoRouter(
-  routes: [
-    GoRoute(
-      path: '/',
-      builder: (context, state) => const HomeScreen(),
-    ),
-  ],
-);
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Hacker News'),
-      ),
-      body: const Center(
-        child: Text('Welcome to Hacker News!'),
-      ),
+      theme: isDark
+          ? const CupertinoThemeData(
+              brightness: Brightness.dark,
+              primaryColor: CupertinoColors.activeBlue,
+            )
+          : const CupertinoThemeData(
+              brightness: Brightness.light,
+              primaryColor: CupertinoColors.activeBlue,
+            ),
+      routerConfig: router,
+      debugShowCheckedModeBanner: false,
+      localizationsDelegates: const [],
+      supportedLocales: const [
+        Locale('en', ''), // English
+      ],
     );
   }
 }

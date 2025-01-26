@@ -1,0 +1,14 @@
+flutter_native_splash:
+  color: "#FFFFFF"
+  color_dark: "#121212"
+  
+  # Use default app icon
+  android_12:
+    color: "#FFFFFF"
+    color_dark: "#121212"
+    icon_background_color: "#FFFFFF"
+    icon_background_color_dark: "#121212"
+  
+  web: false
+  ios: true
+  android: true 

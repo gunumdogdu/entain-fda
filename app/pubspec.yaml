@@ -10,6 +10,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   api:
     path: ../resources/api
   dio: ^5.4.0
@@ -18,7 +20,17 @@ dependencies:
   go_router: ^13.2.0
   json_annotation: ^4.8.1
   freezed_annotation: ^2.4.1
+  url_launcher: ^6.2.1
+  intl: ^0.19.0
   cupertino_icons: ^1.0.2
+  flutter_html: ^3.0.0-beta.2
+  google_fonts: ^6.1.0
+  path_provider: ^2.1.2
+  flutter_staggered_animations: ^1.1.1
+  values:
+    path: ../resources/values
+  shimmer: ^3.0.0
+  shared_preferences: ^2.2.2
 
 dev_dependencies:
   flutter_test:
@@ -27,6 +39,8 @@ dev_dependencies:
   json_serializable: ^6.7.1
   freezed: ^2.4.7
   flutter_lints: ^3.0.1
+  flutter_native_splash: ^2.3.10
 
 flutter:
-  uses-material-design: true 
+  uses-material-design: true
+  
