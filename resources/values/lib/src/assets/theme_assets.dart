@@ -17,7 +17,7 @@ extension ThemeAssetExtension on ThemeAsset {
 
     switch (this) {
       case ThemeAsset.loginImage:
-        return isDark ? ImageAssets.loginDark : ImageAssets.loginLight;
+        return isDark ? ImageAssets.hackerNewsLogoDark : ImageAssets.hackerNewsLogoLight;
     }
   }
 }

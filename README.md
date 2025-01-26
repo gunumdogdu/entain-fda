@@ -2,6 +2,12 @@
 
 A modern Hacker News client built with Flutter, showcasing clean architecture, best practices, and a modular approach.
 
+## 📱 Demo
+
+<p align="center">
+  <img src=".github/assets/demo.gif" alt="Hacker News App Demo" width="300"/>
+</p>
+
 ## 📱 Features
 
 - Browse top Hacker News stories

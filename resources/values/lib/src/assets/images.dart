@@ -7,8 +7,11 @@ class ImageAssets {
   const ImageAssets._();
 
   // Login images
-  static const String loginDark = 'assets/images/login_dark.png';
-  static const String loginLight = 'assets/images/login_light.png';
+
+  static const String hackerNewsLogoDark =
+      'assets/images/hacker_news_dark_logo.png';
+  static const String hackerNewsLogoLight =
+      'assets/images/hacker_news_light_logo.png';
 
   // Add other image assets here...
 }
