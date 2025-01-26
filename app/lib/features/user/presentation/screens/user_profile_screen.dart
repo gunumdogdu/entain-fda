@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:hacker_news/core/constants/module_padding.dart';
 import 'package:hacker_news/features/user/presentation/widgets/user_stories_list.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import 'package:values/values.dart';
 
 import '../controllers/user_controller.dart';
@@ -68,22 +70,37 @@ class UserProfileScreen extends ConsumerWidget {
                                 .textTheme
                                 .navTitleTextStyle
                                 .copyWith(
-                                  color: CupertinoColors.activeBlue,
+                                  color: context.onSurface,
                                   fontSize: 20,
                                 ),
                           ),
                           const SizedBox(height: ModulePadding.v8),
-                          Text(
-                            user.about!,
-                            style: CupertinoTheme.of(context)
-                                .textTheme
-                                .textStyle
-                                .copyWith(
-                                  height: 1.5,
-                                  color: isDark
-                                      ? CupertinoColors.white
-                                      : CupertinoColors.black,
-                                ),
+                          Html(
+                            data: user.about!,
+                            style: {
+                              "body": Style(
+                                margin: Margins.zero,
+                                padding: HtmlPaddings.zero,
+                                fontSize: FontSize(15),
+                                color: isDark
+                                    ? CupertinoColors.white
+                                    : CupertinoColors.black,
+                                fontFamily: CupertinoTheme.of(context)
+                                    .textTheme
+                                    .textStyle
+                                    .fontFamily,
+                              ),
+                              "a": Style(
+                                color: CupertinoColors.activeBlue,
+                                textDecoration: TextDecoration.none,
+                              ),
+                            },
+                            onLinkTap: (url, _, __) {
+                              if (url != null) {
+                                launchUrlString(url,
+                                    mode: LaunchMode.externalApplication);
+                              }
+                            },
                           ),
                         ],
                       ),
