@@ -27,7 +27,7 @@ A modern Hacker News client built with Flutter, showcasing clean architecture, b
 
 
 
-## 📱 Featuresnoldu
+## 📱 Features
 
 - Browse top Hacker News stories
 - View story details and comments
